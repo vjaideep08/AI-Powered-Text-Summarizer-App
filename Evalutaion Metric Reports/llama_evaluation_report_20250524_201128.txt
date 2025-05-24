@@ -65,7 +65,7 @@ Semantic Similarity: 0.6955 ± 0.1072
 
 RECOMMENDATIONS
 ------------------------------
-1. Use 'original' variant for best overall performance
+1. Using 'original' prompt variant for best overall performance is recommended.
 2. Key observations:
    - original: Best performer (score: 0.2132)
    - improved_v1: -0.0149 vs best (score: 0.1982)
