@@ -271,19 +271,6 @@ Llama 3.2 1B is a compact language model optimized for efficient text summarizat
 - ✅ Performance benchmarking
 - ✅ Error handling validation
 
-### Sample Test
-```python
-def test_summarization_output():
-    """Test that summarizer produces exactly 3 bullet points"""
-    summarizer = TextSummarizer()
-    sample_text = "Long text content..." * 100  # 500+ words
-    
-    result = summarizer.summarize_to_bullets(sample_text)
-    
-    assert len(result) == 3
-    assert all(len(bullet.strip()) > 10 for bullet in result)
-    assert not any("<|eot_id|>" in bullet for bullet in result)
-```
 
 ## 🔧 Troubleshooting
 
