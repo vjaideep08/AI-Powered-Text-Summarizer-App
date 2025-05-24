@@ -118,7 +118,7 @@ def main():
                         st.markdown(f"**{i}.** {point}")
                     
                     # Display processing info
-                    st.info(f"⏱️ Processing time: {processing_time:.2f} seconds")
+                    # st.info(f"⏱️ Processing time: {processing_time:.2f} seconds")
                     
                     # Update statistics
                     st.session_state.summary_count += 1
@@ -146,7 +146,7 @@ def main():
     st.markdown(
         """
         <div style='text-align: center'>
-            <p>Built using Streamlit and Llama 3.2 1B and Huggingface Transformers 🤗 
+            <p>Built using Llama 3.2 1B, Huggingface Transformers 🤗 and Streamlit and
         </div>
         """, 
         unsafe_allow_html=True
