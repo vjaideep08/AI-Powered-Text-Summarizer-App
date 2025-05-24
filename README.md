@@ -210,7 +210,11 @@ ai-text-summarizer/
 ├── requirements.txt       # Python dependencies
 ├── README.md             # This file
 └── docs/                 # Additional documentation
-    └── architecture.md
+    └── Current Implementation Approach and Strategy.docx
+    └── Production Deployment Stretegy.docx
+└── Evaluation Metrics Results/                 # Additional documentation
+    └── llama_evaluation_results_20250524_201128.json
+    └── llama_evaluation_report_20250524_201128.txt
 ```
 
 
