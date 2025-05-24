@@ -113,7 +113,8 @@ def main():
                     # Display summary points
                     st.markdown("### Key Points:")
                     for i, point in enumerate(summary_points, 1):
-                        st.markdown(f"**{i}.** {point}")
+                        # st.markdown(f"**{i}.** {point}")
+                        st.markdown(f"**•** {point}")
                     
                     # Display processing info
                     # st.info(f"⏱️ Processing time: {processing_time:.2f} seconds")
