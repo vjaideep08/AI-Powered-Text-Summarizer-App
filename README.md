@@ -244,6 +244,16 @@ CMD ["streamlit", "run", "app.py", "--server.address", "0.0.0.0"]
 | **AWS EC2** | Full control, GPU support | Requires setup |
 | **Google Cloud Run** | Serverless, Auto-scaling | Cold starts |
 
+### Implementation SnapShots
+**##Streamlit Interface**
+![image](https://github.com/user-attachments/assets/01bbbfcc-e5dd-41bc-9bb1-8c05665a86df)
+
+## Text Summarization Results 
+![image](https://github.com/user-attachments/assets/001840bf-1334-47bd-aedb-6a7d57e87af7)
+
+![image](https://github.com/user-attachments/assets/13ad5bb8-a63d-4f4a-a925-debc76a3cf52)
+
+
 ## 📊 Performance
 
 ### Benchmarks
@@ -362,6 +372,7 @@ pip install transformers>=4.35.0
 - Consider using smaller input texts
 
 ---
+
 
 <div align="center">
 
