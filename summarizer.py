@@ -63,16 +63,7 @@ class TextSummarizer:
             raise RuntimeError(f"Failed to load model: {str(e)}")
     
     def _create_prompt(self, text: str) -> str:
-        """
-        Create a structured prompt for the model to generate 3 bullet points.
-        
-        Args:
-            text (str): Input text to summarize
-            
-        Returns:
-            str: Formatted prompt for the model
-        """
-        prompt = f"""<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+        original= f"""<|begin_of_text|><|start_header_id|>system<|end_header_id|>
 
 You are a helpful Intelligent AI assistant that creates concise summaries. Your task is to read the provided text and create exactly 3 comprehensive bullet points using a "hybrid approach" that capture the most important information. Each bullet point should be clear, concise, and informative. 
 
@@ -85,17 +76,83 @@ Please summarize the following text into exactly 3 bullet points:
 Summary:<|eot_id|><|start_header_id|>assistant<|end_header_id|>
 
 """
-        return prompt
+        
+        improved_v1 = f"""<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+You are an expert AI assistant specializing in comprehensive text summarization. Your task is to create exactly 3 detailed bullet points that capture ALL major themes, key concepts, and important details from the provided text.
+
+SUMMARIZATION REQUIREMENTS:
+• Ensure COMPLETE COVERAGE: Each bullet point should address distinct major themes or sections from the original text
+• Preserve IMPORTANT TERMINOLOGY: Use key terms, phrases, and domain-specific language from the original text
+• Maintain SEMANTIC ACCURACY: Your summary should reflect the same meaning and context as the original
+• Balance DETAIL with CLARITY: Each bullet point should be substantial (30-50 words) yet clear and readable
+• Ensure NO MAJOR CONCEPTS are missed: Review the entire text systematically to capture all significant information
+
+STRUCTURE GUIDELINES:
+• Bullet Point 1: Cover the primary/most prominent theme or section
+• Bullet Point 2: Address the secondary major theme or complementary concepts  
+• Bullet Point 3: Capture remaining important details, conclusions, or supporting information
+
+FORMAT: Respond with exactly 3 bullet points, each starting with "•" and on a new line.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Please create a comprehensive 3-bullet point summary that captures ALL major themes and important details from the following text. Ensure complete coverage of the content while preserving key terminology and maintaining semantic accuracy:
+
+{text}
+
+Summary:<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+"""
+        
+
+        optimized_v2 = f"""<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+You are an expert AI assistant specializing in comprehensive yet precise text summarization. Your task is to create exactly 3 bullet points that systematically cover ALL major sections and themes from the provided text.
+
+CORE REQUIREMENTS:
+• SYSTEMATIC COVERAGE: Divide the text into 3 distinct thematic sections - ensure each bullet point covers different parts of the original text with no overlap
+• PRESERVE KEY PHRASES: Use important terminology, exact phrases, and domain-specific language directly from the original text
+• BALANCED DEPTH: Each bullet point should be substantive (25-40 words) but every word must add value
+• SECTION MAPPING: Bullet 1 = First major theme/section, Bullet 2 = Second major theme/section, Bullet 3 = Third major theme/section or conclusion
+
+QUALITY STANDARDS:
+• HIGH PRECISION: Every word in your summary must directly relate to the original content
+• COMPREHENSIVE SCOPE: Together, your 3 bullets must touch on different sentences/paragraphs from throughout the original text
+• EXACT TERMINOLOGY: When possible, use the exact important phrases from the original rather than paraphrasing
+
+FORMAT: Respond with exactly 3 bullet points, each starting with "•" and on a new line.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Analyze the entire text below and create 3 bullet points that systematically cover different sections/themes. Ensure each bullet addresses distinct content areas and uses precise terminology from the original:
+
+{text}
+
+Summary:<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+"""
+        
+        simplified_final = f"""<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+You are a helpful AI assistant that creates comprehensive summaries. Your task is to read the entire provided text carefully and create exactly 3 bullet points that together capture all the main topics and important details.
+
+INSTRUCTIONS:
+• Read through the entire text systematically
+• Make sure each bullet point covers different main topics from the text
+• Include important specific terms and details from the original text
+• Each bullet point should be thorough but clear
+
+Format your response as exactly 3 bullet points, each starting with "•" and on a new line.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Please read the following text completely and summarize it into exactly 3 comprehensive bullet points that cover all the main topics:
+
+{text}
+
+Summary:<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+"""
+        return original
     
     def _clean_and_extract_bullets(self, generated_text: str) -> List[str]:
         """
         Extract and clean bullet points from the generated text.
-        
-        Args:
-            generated_text (str): Raw output from the model
-            
-        Returns:
-            List[str]: List of cleaned bullet points
         """
         # Split by the assistant token to get only the response
         if "<|start_header_id|>assistant<|end_header_id|>" in generated_text:
@@ -106,7 +163,8 @@ Summary:<|eot_id|><|start_header_id|>assistant<|end_header_id|>
         # Clean up the response
         response_part = response_part.strip()
         
-        # Extract bullet points using regex
+        # Extract bullet points using regex.
+        # to handle hellucinations too.
         bullet_patterns = [
             r'•\s*(.+)',  # Standard bullet
             r'-\s*(.+)',  # Dash bullet
@@ -131,7 +189,9 @@ Summary:<|eot_id|><|start_header_id|>assistant<|end_header_id|>
                     break
         
         # If we don't have exactly 3 bullets, try to extract from any line
+        # Handling if three bullet points are not generated. 
         if len(bullets) != 3:
+            print("ALERT !!! three bullets points are not generated!!!")
             bullets = []
             for line in lines:
                 line = line.strip()
@@ -153,12 +213,6 @@ Summary:<|eot_id|><|start_header_id|>assistant<|end_header_id|>
     def summarize_to_bullets(self, text: str) -> List[str]:
         """
         Generate a 3-bullet-point summary of the input text.
-        
-        Args:
-            text (str): Input text to summarize
-            
-        Returns:
-            List[str]: List of 3 bullet points summarizing the text
         """
         try:
             # Validate input
@@ -213,9 +267,6 @@ Summary:<|eot_id|><|start_header_id|>assistant<|end_header_id|>
     def get_model_info(self) -> dict:
         """
         Get information about the loaded model.
-        
-        Returns:
-            dict: Model information
         """
         return {
             "model_name": self.model_name,
