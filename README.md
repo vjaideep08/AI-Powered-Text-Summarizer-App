@@ -13,7 +13,6 @@ A lightweight AI-powered web application that generates concise **3-bullet-point
 ## ✨ Features
 
 - 📝 **Smart Summarization**: Generate exactly 3 comprehensive bullet points from any text
-- ⚡ **Fast Processing**: Optimized inference with typical response times under 5 seconds
 - 🎯 **Quality Control**: Enforces minimum 500-word input for meaningful summarization
 - 💻 **Local Processing**: Runs entirely on your machine - no API keys or external calls
 - 📱 **Responsive UI**: Clean, intuitive Streamlit interface with real-time feedback
@@ -220,6 +219,34 @@ CMD ["streamlit", "run", "app.py", "--server.address", "0.0.0.0"]
 
 ## 🤔 Why Llama 3.2 1B?
 
+## Overview
+
+Llama 3.2 1B is a compact language model optimized for efficient text summarization applications. With only 1 billion parameters, it delivers competitive summarization performance while maintaining minimal computational requirements.
+
+## Technical Specifications
+
+| Metric | Value |
+|--------|--------|
+| Parameters | 1.0B |
+| Model Size | ~2.5GB (FP16) |
+| Context Length | 128K tokens |
+| Architecture | Transformer (Llama 3.2) |
+| Quantization Support | INT4, INT8, FP16 |
+| Memory Requirements | 3-4GB RAM (FP16) |
+
+## Key Features
+
+### Performance Characteristics
+- **Inference Speed**: 50-100 tokens/sec on consumer GPUs
+- **Throughput**: 1000+ documents/hour on single GPU
+- **Memory Efficiency**: Runs on 4GB VRAM
+
+### Architecture Optimizations
+- **Grouped Query Attention (GQA)**: Reduces memory bandwidth requirements
+- **RoPE Positional Encoding**: Efficient handling of long sequences  
+- **SwiGLU Activation**: Improved parameter efficiency
+- **Layer Normalization**: RMSNorm for faster computation
+
 ### ✅ Advantages
 - **Optimal Balance**: Great performance-to-size ratio for summarization tasks
 - **Local Processing**: No API costs or rate limits
@@ -281,48 +308,6 @@ pip install transformers>=4.35.0
 - Ensure GPU drivers are installed for CUDA support
 - Check available memory with `nvidia-smi`
 - Consider using smaller input texts
-
-### Getting Help
-- 📖 Check the [documentation](docs/)
-- 🐛 Open an [issue](https://github.com/yourusername/ai-text-summarizer/issues)
-- 💬 Start a [discussion](https://github.com/yourusername/ai-text-summarizer/discussions)
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-### Development Setup
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Make your changes and add tests
-4. Run the test suite: `pytest`
-5. Commit your changes: `git commit -m 'Add amazing feature'`
-6. Push to the branch: `git push origin feature/amazing-feature`
-7. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Meta AI** for the Llama 3.2 1B Instruct model
-- **Hugging Face** for the transformers library and model hosting
-- **Streamlit** for the excellent web app framework
-- **Python Community** for the amazing ecosystem of ML libraries
-
-## 📚 Citation
-
-If you use this project in your research or work, please cite:
-
-```bibtex
-@software{ai_text_summarizer,
-  title={AI Text Summarizer: Llama 3.2 1B-powered Bullet Point Generation},
-  author={Your Name},
-  year={2025},
-  url={https://github.com/yourusername/ai-text-summarizer}
-}
-```
 
 ---
 
