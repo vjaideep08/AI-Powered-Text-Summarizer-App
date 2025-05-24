@@ -1,8 +1,8 @@
+from config import MODEL_CONFIG
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import re
 from typing import List
-from config import MODEL_CONFIG
 import logging
 
 # Set up logging
