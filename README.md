@@ -209,36 +209,10 @@ ai-text-summarizer/
 ├── config.py              # Configuration settings
 ├── requirements.txt       # Python dependencies
 ├── README.md             # This file
-├── tests/                # Unit and integration tests
-│   ├── test_summarizer.py
-│   └── test_app.py
 └── docs/                 # Additional documentation
     └── architecture.md
 ```
 
-### Running Tests
-```bash
-# Install test dependencies
-pip install pytest pytest-cov
-
-# Run all tests
-pytest
-
-# Run with coverage report
-pytest --cov=. --cov-report=html
-```
-
-### Code Quality
-```bash
-# Format code
-black .
-
-# Check style
-flake8 .
-
-# Sort imports
-isort .
-```
 
 ## 🚀 Deployment
 
