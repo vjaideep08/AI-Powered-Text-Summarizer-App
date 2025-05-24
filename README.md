@@ -15,7 +15,6 @@ A lightweight AI-powered web application that generates concise **3-bullet-point
 - 🎯 **Quality Control**: Enforces minimum 500-word input for meaningful summarization
 - 💻 **Local Processing**: Runs entirely on your machine - no API keys or external calls
 - 📱 **Responsive UI**: Clean, intuitive Streamlit interface with real-time feedback
-- 📊 **Performance Tracking**: Built-in processing time monitoring and usage statistics
 - 💾 **Export Capability**: Download summaries as text files
 - 🔧 **Hardware Adaptive**: Automatically detects and utilizes GPU when available
 - 🤗 **Simple Model Replace/ Update**: Simply test the solution with the different models just by updating the model name in config.py file. (Important : Remenber to change the **prompt structure and format** in summarizer.py according to the model used)
