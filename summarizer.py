@@ -276,3 +276,15 @@ Summary:<|eot_id|><|start_header_id|>assistant<|end_header_id|>
             "model_loaded": self.model is not None,
             "tokenizer_loaded": self.tokenizer is not None
         }
+
+
+    def remove_eot_id_from_list(self, strings: List[str]) -> List[str]:
+        marker = "<|eot_id|>"
+        bullet = "•"
+        cleaned_strings = []
+        
+        for s in strings:
+            s = s.replace(marker, "").replace(bullet, "").strip()
+            cleaned_strings.append(s)
+        
+        return cleaned_strings
