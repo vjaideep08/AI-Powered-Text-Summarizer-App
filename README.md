@@ -104,6 +104,79 @@ That's it! The Llama model will download automatically on first use (~2.5GB).
 - **`config.py`**: Centralized configuration for model parameters and app settings
 - **`requirements.txt`**: Python dependencies specification
 
+
+## Technical Approach
+
+### 1. Modular Architecture Design
+
+The solution employs a clean separation of concerns:
+
+**Frontend Layer (Streamlit)**
+```
+├── app.py
+│   ├── UI Components
+│   │   ├── Text Input Area (min 500 words)
+│   │   ├── Word Counter & Validation
+│   │   ├── Generate Summary Button
+│   │   └── Results Display Panel
+│   ├── Session Management
+│   │   ├── Model Caching (@st.cache_resource)
+│   │   └── Statistics Tracking
+│   └── Error Handling & User Feedback
+```
+
+**Backend Layer (Core Processing)**
+```
+├── summarizer.py
+│   ├── TextSummarizer Class
+│   │   ├── Model Initialization
+│   │   │   ├── Device Detection (CUDA/CPU)
+│   │   │   ├── Model Loading with Optimization
+│   │   │   └── Tokenizer Configuration
+│   │   ├── Prompt Engineering
+│   │   │   ├── System Message Formatting
+│   │   │   ├── Chat Template Structure
+│   │   │   └── Context Window Management
+│   │   ├── Text Generation
+│   │   │   ├── Input Tokenization
+│   │   │   ├── Inference with Parameters
+│   │   │   └── Output Decoding
+│   │   └── Post-processing
+│   │       ├── Bullet Point Extraction
+│   │       ├── Format Validation
+│   │       └── Quality Assurance
+│   └── Error Handling & Logging
+```
+
+**Configuration Layer**
+```
+├── config.py
+│   ├── MODEL_CONFIG (Model parameters)
+│   ├── APP_CONFIG (Application settings)
+│   ├── UI_CONFIG (Interface parameters)
+│   └── PERFORMANCE_CONFIG (Optimization settings)
+```
+
+- **Frontend**: Streamlit handles user interaction and display
+- **Backend**: Dedicated TextSummarizer class manages AI processing
+- **Configuration**: Centralized settings management
+- **Utilities**: Helper functions for text processing
+
+### 2. Hybrid Summarization Strategy
+
+The implementation uses a "hybrid approach" that combines:
+- **Extractive elements**: Identifying key information from source text
+- **Abstractive elements**: Generating coherent, reformulated bullet points
+- **Structure enforcement**: Ensuring exactly 3 bullet points output
+
+### 3. Resource Optimization
+
+- **Model caching**: Streamlit's @st.cache_resource prevents repeated loading
+- **Memory management**: Low CPU memory usage configuration
+- **Device optimization**: Automatic CUDA/CPU detection and allocation
+- **Precision optimization**: FP16 on GPU, FP32 on CPU
+
+
 ## ⚙️ Configuration
 
 ### Model Parameters
@@ -222,6 +295,31 @@ CMD ["streamlit", "run", "app.py", "--server.address", "0.0.0.0"]
 
 Llama 3.2 1B is a compact language model optimized for efficient text summarization applications. With only 1 billion parameters, it delivers competitive summarization performance while maintaining minimal computational requirements.
 
+## Model Selection Criteria
+
+### Why Llama 3.2 1B Instruct?
+
+#### ✅ Advantages
+
+**1. Optimal Size-Performance Balance**
+- 1B parameters provide sufficient capability for summarization
+- Lightweight enough for local deployment
+- Fast inference times (typically < 5 seconds)
+
+**2. Instruction Following Capability**
+- Pre-trained for instruction-following tasks
+- Excellent at structured output generation
+- Reliable bullet-point formatting
+
+**3. Resource Efficiency**
+- Runs on both CPU and GPU
+- Low memory footprint (~2-4GB RAM)
+- Suitable for edge deployment
+
+**4. Open Source & Accessible**
+- Available through Hugging Face
+- No API costs or rate limits
+- Full control over deployment
 ## Technical Specifications
 
 | Metric | Value |
@@ -254,12 +352,6 @@ Llama 3.2 1B is a compact language model optimized for efficient text summarizat
 - **Resource Efficient**: Runs on modest hardware configurations
 
 ### 📈 Model Comparison
-| Model | Size | Quality | Speed | Resource Usage |
-|-------|------|---------|-------|----------------|
-| **Llama 3.2 1B** | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| GPT-3.5 Turbo | N/A | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| Llama 3.2 3B | ⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
-| T5-Small | ⭐⭐⭐⭐⭐ | ⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
 
 ## 🧪 Testing
 
