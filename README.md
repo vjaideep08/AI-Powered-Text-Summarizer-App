@@ -209,10 +209,10 @@ ai-text-summarizer/
 ├── config.py              # Configuration settings
 ├── requirements.txt       # Python dependencies
 ├── README.md             # This file
-└── docs/                 # Additional documentation
+└── docs/                 # Approach and strategy documents
     └── Current Implementation Approach and Strategy.docx
     └── Production Deployment Stretegy.docx
-└── Evaluation Metrics Results/                 # Additional documentation
+└── Evaluation Metrics Results/                 # Evalutaion results of model and prompts and theoritical documents
     └── llama_evaluation_results_20250524_201128.json
     └── llama_evaluation_report_20250524_201128.txt
 ```
