@@ -1,8 +1,3 @@
-"""
-Configuration file for the AI Text Summarizer application.
-Contains model settings, app configuration, and other constants.
-"""
-
 # Model Configuration
 MODEL_CONFIG = {
     "model_name": "meta-llama/Llama-3.2-1B-Instruct",
