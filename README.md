@@ -253,9 +253,9 @@ CMD ["streamlit", "run", "app.py", "--server.address", "0.0.0.0"]
 ![image](https://github.com/user-attachments/assets/01bbbfcc-e5dd-41bc-9bb1-8c05665a86df)
 
 ## Text Summarization Results 
-![image](https://github.com/user-attachments/assets/001840bf-1334-47bd-aedb-6a7d57e87af7)
+![image](https://github.com/user-attachments/assets/fd03679e-221c-465d-983a-d38f9275367c)
+![image](https://github.com/user-attachments/assets/a8233b29-9a5a-40f9-906d-b51e2e5bdeb6)
 
-![image](https://github.com/user-attachments/assets/13ad5bb8-a63d-4f4a-a925-debc76a3cf52)
 
 
 ## 📊 Performance
