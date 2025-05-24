@@ -1,7 +1,7 @@
-import streamlit as st
-import time
-from summarizer import TextSummarizer
 from config import APP_CONFIG
+import streamlit as st
+from summarizer import TextSummarizer
+import time
 
 def remove_eot_id_from_list(strings):
     marker = "<|eot_id|>"
