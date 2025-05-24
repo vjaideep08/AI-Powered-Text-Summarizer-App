@@ -5,7 +5,6 @@ A lightweight AI app that allows users to input text (500 words or more) and pro
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Hugging Face](https://img.shields.io/badge/🤗-Hugging%20Face-yellow)](https://huggingface.co/)
 
 A lightweight AI-powered web application that generates concise **3-bullet-point summaries** from long-form text using Meta's **Llama 3.2 1B Instruct** model. Perfect for quickly distilling key insights from articles, reports, documents, and other lengthy content.
