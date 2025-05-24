@@ -1,0 +1,79 @@
+================================================================================
+LLAMA-3.2-1B-INSTRUCT MODEL EVALUATION REPORT
+================================================================================
+Evaluation Date: 2025-05-24 20:11:28
+Model: meta-llama/Llama-3.2-1B-Instruct
+Dataset: CNN/DailyMail
+Samples Evaluated: 50
+Device Used: cuda
+
+SUMMARY OF RESULTS
+--------------------------------------------------
+Variant              ROUGE-1    ROUGE-2    ROUGE-L    BLEU     METEOR   Coverage   Semantic  
+----------------------------------------------------------------------------------------------------
+original             0.236      0.078      0.156      0.030    0.314    0.262      0.692     
+improved_v1          0.211      0.071      0.144      0.027    0.291    0.258      0.673     
+optimized_v2         0.185      0.054      0.123      0.017    0.251    0.222      0.597     
+simplified_final     0.216      0.075      0.150      0.027    0.304    0.267      0.696     
+
+BEST PERFORMING VARIANT: original
+Composite Score: 0.2132
+
+DETAILED RESULTS: ORIGINAL
+------------------------------------------------------------
+ROUGE Scores:
+  ROUGE-1 F1: 0.2360 ± 0.0656
+  ROUGE-2 F1: 0.0776 ± 0.0468
+  ROUGE-L F1: 0.1560 ± 0.0461
+BLEU Score: 0.0297 ± 0.0241
+METEOR Score: 0.3138 ± 0.0849
+Coverage Score: 0.2624 ± 0.1039
+Semantic Similarity: 0.6924 ± 0.1099
+
+DETAILED RESULTS: IMPROVED_V1
+------------------------------------------------------------
+ROUGE Scores:
+  ROUGE-1 F1: 0.2113 ± 0.0532
+  ROUGE-2 F1: 0.0706 ± 0.0379
+  ROUGE-L F1: 0.1438 ± 0.0392
+BLEU Score: 0.0267 ± 0.0180
+METEOR Score: 0.2906 ± 0.0664
+Coverage Score: 0.2578 ± 0.1200
+Semantic Similarity: 0.6728 ± 0.1205
+
+DETAILED RESULTS: OPTIMIZED_V2
+------------------------------------------------------------
+ROUGE Scores:
+  ROUGE-1 F1: 0.1846 ± 0.0756
+  ROUGE-2 F1: 0.0539 ± 0.0386
+  ROUGE-L F1: 0.1225 ± 0.0491
+BLEU Score: 0.0168 ± 0.0168
+METEOR Score: 0.2507 ± 0.1014
+Coverage Score: 0.2223 ± 0.1383
+Semantic Similarity: 0.5969 ± 0.2059
+
+DETAILED RESULTS: SIMPLIFIED_FINAL
+------------------------------------------------------------
+ROUGE Scores:
+  ROUGE-1 F1: 0.2164 ± 0.0549
+  ROUGE-2 F1: 0.0748 ± 0.0448
+  ROUGE-L F1: 0.1498 ± 0.0459
+BLEU Score: 0.0271 ± 0.0206
+METEOR Score: 0.3040 ± 0.0693
+Coverage Score: 0.2667 ± 0.1242
+Semantic Similarity: 0.6955 ± 0.1072
+
+RECOMMENDATIONS
+------------------------------
+1. Use 'original' variant for best overall performance
+2. Key observations:
+   - original: Best performer (score: 0.2132)
+   - improved_v1: -0.0149 vs best (score: 0.1982)
+   - optimized_v2: -0.0426 vs best (score: 0.1706)
+   - simplified_final: -0.0078 vs best (score: 0.2054)
+
+3. Consider factors:
+   - ROUGE scores indicate content overlap quality
+   - BLEU/METEOR measure translation-like quality
+   - Coverage shows how much source content is preserved
+   - Semantic similarity measures meaning preservation
