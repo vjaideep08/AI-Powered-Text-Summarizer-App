@@ -3,16 +3,7 @@ import streamlit as st
 from summarizer import TextSummarizer
 import time
 
-def remove_eot_id_from_list(strings):
-    marker = "<|eot_id|>"
-    bullet = "•"
-    cleaned_strings = []
-    
-    for s in strings:
-        s = s.replace(marker, "").replace(bullet, "").strip()
-        cleaned_strings.append(s)
 
-    return cleaned_strings
 
 st.set_page_config(
     page_title="AI-enabled Text Summarizer App",
@@ -104,7 +95,7 @@ def main():
                     start_time = time.time()
                     summary_points = summarizer.summarize_to_bullets(input_text)
                     print(summary_points)
-                    summary_points =  remove_eot_id_from_list(summary_points)
+                    summary_points =  summarizer.remove_eot_id_from_list(summary_points)
                     processing_time = time.time() - start_time
                     
                     # Display results
