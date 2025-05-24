@@ -270,7 +270,7 @@ CMD ["streamlit", "run", "app.py", "--server.address", "0.0.0.0"]
 |-----------|---------|-------------|
 | **RAM** | 4GB | 8GB+ |
 | **CPU** | 2 cores | 4+ cores |
-| **GPU** | Not required | GTX 1060+ |
+| **GPU** | min of 4GB | based on model and weights compatibility |
 | **Storage** | 5GB free | 10GB+ |
 
 ## 🤔 Why Llama 3.2 1B?
