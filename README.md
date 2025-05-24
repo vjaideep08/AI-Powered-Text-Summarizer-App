@@ -32,8 +32,8 @@ A lightweight AI-powered web application that generates concise **3-bullet-point
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/ai-text-summarizer.git
-   cd ai-text-summarizer
+   git clone https://github.com/vjaideep08/AI-Powered-Text-Summarizer-App.git
+   cd AI-Powered-Text-Summarizer-App
    ```
 
 2. **Create virtual environment** (recommended)
