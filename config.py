@@ -1,6 +1,6 @@
 # Model Configuration
 MODEL_CONFIG = {
-    "model_name": "meta-llama/Llama-3.2-1B-Instruct",
+    "model_name": "meta-llama/Llama-3.2-1B-Instruct", #Qwen/Qwen3-0.6B
     "max_length": 300,  # Maximum tokens for summary generation
     "temperature": 0.7,  # Sampling temperature for generation
     "top_p": 0.9,       # Nucleus sampling parameter
