@@ -5,13 +5,11 @@ import time
 
 def remove_eot_id_from_list(strings):
     marker = "<|eot_id|>"
+    bullet = "•"
     cleaned_strings = []
     
     for s in strings:
-        if marker in s:
-            s = s.replace(marker, "")
-        # else:
-        #     print("Marker not found.")
+        s = s.replace(marker, "").replace(bullet, "").strip()
         cleaned_strings.append(s)
 
     return cleaned_strings
