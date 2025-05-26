@@ -277,11 +277,11 @@ CMD ["streamlit", "run", "app.py", "--server.address", "0.0.0.0"]
 | **GPU** | min of 4GB | based on model and weights compatibility |
 | **Storage** | 5GB free | 10GB+ |
 
-## 🤔 Why Llama 3.2 1B?
+## 🤔 Why Llama 3.2 1B Instruct?
 
 ## Overview
 
-Llama 3.2 1B is a compact language model optimized for efficient text summarization applications. With only 1 billion parameters, it delivers competitive summarization performance while maintaining minimal computational requirements.
+Llama 3.2 1B Instruct is a compact language model optimized for efficient text summarization applications. With only 1 billion parameters, it delivers competitive summarization performance while maintaining minimal computational requirements.
 
 ## Model Selection Criteria
 
