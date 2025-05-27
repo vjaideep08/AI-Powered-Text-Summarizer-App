@@ -403,6 +403,4 @@ pip install transformers>=4.35.0
 
 **Built with ❤️ using Python, Streamlit, and Llama 3.2 1B**
 
-[⭐ Star this repo](https://github.com/yourusername/ai-text-summarizer) • [🐛 Report Bug](https://github.com/yourusername/ai-text-summarizer/issues) • [💡 Request Feature](https://github.com/yourusername/ai-text-summarizer/issues)
-
 </div>
